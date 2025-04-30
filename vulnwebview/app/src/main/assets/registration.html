@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {box-sizing: border-box}
+
+        /* Add padding to containers */
+        .container {
+          padding: 16px;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit/register button */
+        .registerbtn {
+          background-color: #4CAF50;
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+          opacity:1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+          color: dodgerblue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter username" name="username" id="username" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter password" name="psw" id="pwd" required>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat password" name="psw-repeat" id="psw-repeat" required>
+    <hr>
+
+    <button type="button" id="registerBtn" class="registerbtn">Register</button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("registerBtn").addEventListener("click", saveUserData);
+    });
+
+    function saveUserData() {
+        var username = document.getElementById("username").value;
+        var pwd = document.getElementById("pwd").value;
+        var pwdAgain = document.getElementById("psw-repeat").value;
+
+        // 檢查密碼是否相同
+        if (pwd !== pwdAgain) {
+            alert("密碼不一致！");
+            return;
+        }
+
+        if (window.Android && typeof Android.saveUser === "function") {
+            Android.saveUser(username, pwd);
+        } else {
+            alert("Android 介面未啟動，測試模式啟用！");
+            console.log("模擬儲存：", username, pwd);
+        }
+    }
+</script>
+
+</body>
+</html>
