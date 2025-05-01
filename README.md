@@ -21,6 +21,8 @@
   - kotlin(講會用到的語法) 20min 
   - ngrok 30 min
     - 註冊及使用方式
+    - [ngrok official website](https://ngrok.com/)
+    - [tutorial](https://www.youtube.com/watch?v=aFwrNSfthxU)
   - chrome webview debug tool 20min 
     - finds out what's wrong with http request from vulnwebview to C2 server
   - tcp dump in testing android device ? 1hr
