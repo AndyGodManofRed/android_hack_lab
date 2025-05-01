@@ -2,3 +2,5 @@
 *.png
 *.zip
 tool/
+*.md
+!README.md
