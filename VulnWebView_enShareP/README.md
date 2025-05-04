@@ -1,0 +1,10 @@
+# Vulnerable Web View
+Intentionally vulnerable webview implementions in Android. Video for reference: https://www.youtube.com/watch?v=qS5PkC-37io
+
+## Added vulnerabilities
+1. Basic webview hijack with attacker controlled URL in `RegistrationWebView.java`
+2. User token leaked to attacker via header and JavaScript interface in `SupportWebView.java`
+3. Universal file access allowed in `RegistrationWebView.java` enables exfiltration of private files
+
+## How to install
+- If you want, you can clone this repository into  Android Studio, or you can simply download the `app.apk` and install it on your device.
